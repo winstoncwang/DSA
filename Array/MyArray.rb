@@ -1,5 +1,5 @@
 class MyArray
-  attr_reader :length
+  attr_reader :length, :data
 
   def initialize
     @length = 0
@@ -30,6 +30,14 @@ class MyArray
     return str
   end
 
+  def shift_item(index)
+    for i in index..length - 1
+      @data[i] = @data[i + 1]
+    end
+    @data[length - 1] = @data[length - 2]
+    @data.delete(length - 1)
+  end
+
   #this is why some array is O(n)
   #deleting at an index requires for loop in shift_item(index)
   def delete(index)
@@ -37,12 +45,6 @@ class MyArray
     shift_item(index)
     @length -= 1
     return item
-  end
-
-  def shift_item(index)
-    for i in index..length - 1
-      @data[i] = @data[i + 1]
-    end
   end
 end
 
@@ -56,3 +58,4 @@ puts newArr.length
 puts newArr.delete(2)
 puts newArr.print_all
 puts newArr.length
+puts newArr.data
