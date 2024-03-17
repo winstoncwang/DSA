@@ -1,0 +1,6 @@
+ArrayList Vs LinkedList (LL)
+--------------------------------
+LL don't have indexes.
+LL are not organised/stored continuously in memory.
+LL uses pointers/references.
+LL are dynamic

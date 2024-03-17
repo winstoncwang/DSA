@@ -1,0 +1,25 @@
+---------------------
+|   Not a pointer   |
+---------------------
+int num1 = 11;
+int num2 = num1;
+
+num1 = 22
+
+//num1 = 22
+//num2 = 11
+
+---------------------
+|  A valid Pointer  |
+---------------------
+// In Java, there is no pointers but references which are pointers with safety features.
+HashMap<String, Integer> map1 = new HashMap<>();
+HashMap<String, Integer> map2 = new HashMap<>();
+
+map1.put("value",11);
+map2= map1
+
+System.out.println(map1):
+System.out.println(map2);
+
+//map2 points to map1 not {"value":11}

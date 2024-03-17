@@ -1,4 +1,3 @@
 # DSA
 
-This repo aimed to record all implementation and learning of DS. For self reference only.
-Most classes implemeted in Ruby.
+This repo aimed to record all implementation and learning of DSA. For self reference only. Java Specific
