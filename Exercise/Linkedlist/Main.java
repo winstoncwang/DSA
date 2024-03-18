@@ -1,7 +1,7 @@
 package Exercise.Linkedlist;
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         LinkedList newLinkedList = new LinkedList(4);
         newLinkedList.append(7);
         newLinkedList.append(9);
