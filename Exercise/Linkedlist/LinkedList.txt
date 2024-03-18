@@ -1,0 +1,36 @@
+ArrayList Vs LinkedList (LL)
+--------------------------------
+LL don't have indexes.
+LL are not organised/stored continuously in memory.
+LL uses pointers/references.
+LL are dynamic.
+
+--------------------------------
+LL
+O(1) tail insertion [point to new node & set tail to new node]
+O(n) tail remove    [count through all node & set tail to n-1 node]
+O(1) head insertion [set new node to head & set head to new node]
+O(1) head remove    [set head to head.next]
+O(n) node insertion [set to next node & previous node set to new node]
+O(n) node remove    [set the node to new node + 1 & set new node to null]
+O(n) find node      [both index or value are the same]
+
+ArrayList is better when [remove last] & [look by index] O(1)
+LinkedList is better when [add and remove at the head]
+--------------------------------
+Node
+head          tail
+  |            |
+  7  ->  5 ->  6
+
+head = {
+        "value"=7,
+        "next"={
+               "value"=5,
+               "next"={
+                      "value"=4,            <----tail
+                      "next"=null
+                      }
+               }
+        }
+
