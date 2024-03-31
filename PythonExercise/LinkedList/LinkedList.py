@@ -75,7 +75,37 @@ class LinkedList:
             return True
         return False
         
-    # def insert(self, index, value):
+    def insert(self, index, value):
+        if index < 0 or index >= self.length:
+            print("Invalid index")
+            return None
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length - 1:
+            return self.append(value)
+        prev_node = self.get(index - 1)
+        new_node = Node(value)
+        tmp = prev_node.next
+        prev_node.next = new_node
+        new_node.next = tmp
+        self.length += 1
+        return True
+    
+    def reverse (self):
+        tmp = self.head
+        self.head = self.tail
+        self.tail = tmp
+        after = tmp.next
+        before = None
+        for _ in range(self.length):
+            after = tmp.next
+            tmp.next = before
+            before = tmp
+            tmp = after
+            # if after.next: #last node.next is none, so it will cause error. have after assigned before moving tmp.next
+            #     after = after.next
+        return True
+        
     
     def printList(self):
         list = []
@@ -106,15 +136,14 @@ class LinkedList:
     def printLength(self):
         print(self.length)
     
-my_ll = LinkedList(4)
-my_ll.append(5)
-my_ll.append(6)
-my_ll.append(7)
-my_ll.append(8)
-my_ll.append(9)
+my_ll = LinkedList(0)
+my_ll.append(1)
+my_ll.append(2)
+my_ll.append(3)
 my_ll.printList()
 
-my_ll.set(5,2)
+my_ll.reverse()
+print("Reversed list")
 my_ll.printList()
 
 # my_ll.pop()
