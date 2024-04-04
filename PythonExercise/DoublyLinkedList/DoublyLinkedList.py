@@ -62,7 +62,61 @@ class DoublyLinkedList:
             self.head.prev = None
         self.length -= 1
         return tmp
+    
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            print("index out of bound")
+            return None
+        if index < self.length / 2:
+            tmp = self.head
+            for _ in range(index):
+                tmp = tmp.next
+        else:
+            tmp = self.tail
+            for _ in range(self.length - 1, index, -1):
+                tmp = tmp.prev
+        return tmp
+    
+    def set_value(self, index, value):
+        tmp = self.get(index)
+        if tmp:
+            tmp.value = value
+            return True
+        return None
+    
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        before = self.get(index - 1)
+        after = before.next
         
+        before.next = new_node
+        new_node.prev = before
+        new_node.next = after
+        after.prev = new_node
+        
+        self.length += 1
+        return True
+    
+    def remove(self,index):
+        if index < 0 or index >= self.length:
+            return False
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        before = self.get(index - 1)
+        after = before. next
+        before.next = after.next
+        after.next.prev = before
+        self.length -= 1
+        return after
+                
     def printList(self):
         tmp = self.head
         print("-----------------")
@@ -81,16 +135,11 @@ class DoublyLinkedList:
         else:
             print("tail: ",self.tail)    
         
-dll = DoublyLinkedList(1)
+dll = DoublyLinkedList(0)
+dll.append(1)
 dll.append(2)
 dll.append(3)
-dll.pop()
-dll.pop()
-dll.pop()
-dll.prepend(1)
-dll.prepend(0)
-dll.append(2)
-dll.pop_first()
-dll.prepend(0)
-
+dll.append(4)
+dll.printList()
+print("pop-off: ",dll.remove(4).value)
 dll.printList()
