@@ -31,6 +31,7 @@ class Stack:
         while tmp is not None:
             print(tmp.value)
             tmp = tmp.next
+        print("Top: ", self.top.value)
         return
     
     
@@ -38,4 +39,8 @@ stack = Stack(1)
 stack.push(2)
 stack.pop()
 stack.pop()
+stack.pop()
+stack.push(1)
+stack.push(2)
+print("-----------")
 stack.printStack()
